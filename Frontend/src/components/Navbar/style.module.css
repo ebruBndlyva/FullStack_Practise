@@ -1,0 +1,82 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+.Navbar {
+  .Navbar_top {
+    font-family: "Poppins", serif;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    .Navbar_top_wrapper {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      /* padding: 20px 0; */
+    }
+
+    .Navbar_top_contact {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+
+      .Navbar_contact_icon {
+        background-color: #f2214c;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 30px;
+        color: white;
+        font-size: 20px;
+        font-weight: 900;
+      }
+
+      .Navbar_contact_tel {
+        color: black;
+        text-decoration: none;
+      }
+    }
+    .Navbar_bar {
+      display: none;
+    }
+  }
+  .Navbar_link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
+    
+  }
+  .Navbar_link ul{
+    display: flex;
+    align-items: center;
+    list-style-type: none;
+    gap: 20px;
+  }
+  .Navbar_link ul a{
+    font-family: "Poppins", serif;
+    font-size: 13px;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: black;
+    transition: all .3s;
+    &:hover{
+        color: #f2214c;
+    }
+  }
+}
+
+/* responsive */
+@media screen and (max-width: 992px) {
+  .Navbar .Navbar_top .Navbar_top_wrapper .Navbar_top_contact,
+  .Navbar .Navbar_top .Navbar_top_wrapper .Navbar_top_desc,
+  .Navbar .Navbar_link {
+    display: none;
+  }
+  .Navbar .Navbar_top .Navbar_top_wrapper {
+    padding: 24px 0;
+    justify-content: center;
+    .Navbar_bar {
+      display: block;
+      position: absolute;
+      right: 20px;
+      font-size: 20px;
+      color: #f2214c;
+    }
+  }
+}
