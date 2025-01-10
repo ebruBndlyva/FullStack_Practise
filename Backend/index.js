@@ -7,14 +7,14 @@ const mongoose = require("mongoose");
 app.use(bodyParser.json());
 app.use(cors());
 
-let CountrySchema = mongoose.Schema({
-    name:String,
+let CountrySchema = new mongoose.Schema({
+    country:String,
     image:String,
-    description1:String,
+    title:String,
     description12 :String
 
 })
-let CountryModel = new mongoose.model("country",CountrySchema)
+let CountryModel =  mongoose.model("country",CountrySchema)
 
 app.get("/country",async (req,res)=>{
     let countrys = await CountryModel.find()
@@ -36,7 +36,7 @@ app.delete("/country/:id", async (req,res)=>{
 })
 app.post("/country", async (req,res)=>{
     let newCountry = CountryModel(req.body)
-    await CountryModel.save()
+    await newCountry.save()
     res.send({
         message: "Success Post",
         data: req.body
