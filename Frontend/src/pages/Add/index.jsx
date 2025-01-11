@@ -8,19 +8,18 @@ import { useCountryPostDataMutation, useGetCountryDataQuery } from '../../Redux/
 import { useNavigate } from 'react-router-dom';
 
 function Add() {
- 
-  const {data} = useGetCountryDataQuery()
-  
+
+
+
   const [CountryPostData] = useCountryPostDataMutation()
+
   let navigate = useNavigate()
-  useEffect(()=>{
-    console.log(data);
-  },[])
+
   const formik = useFormik({
     initialValues: {
       country: "",
-      description: "",
       title: "",
+      description: "",
       image: ""
     },
     validationSchema: Yup.object({
@@ -42,8 +41,8 @@ function Add() {
         .required('Required'),
 
     }),
-    onSubmit: values => {
-      CountryPostData(values)
+    onSubmit: async values => {
+      await CountryPostData(values)
       Swal.fire({
         title: "Success!",
         text: "Your product has been added successfully.",

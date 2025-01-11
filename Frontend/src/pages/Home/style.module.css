@@ -75,13 +75,23 @@
   }
   .immgr_cards {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 20px;
     .immgr_card {
       display: flex;
       flex-direction: column;
       gap: 10px;
+    
     }
+    .immgr_card_img{
+      width: 100%;
+    }
+    .immgr_card_img img{
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+   
     .immgr_card_desc {
       display: flex;
       flex-direction: column;

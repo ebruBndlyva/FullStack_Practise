@@ -9,9 +9,9 @@ app.use(cors());
 
 let CountrySchema = new mongoose.Schema({
     country:String,
-    image:String,
     title:String,
-    description12 :String
+    image:String,
+    description:String
 
 })
 let CountryModel =  mongoose.model("country",CountrySchema)

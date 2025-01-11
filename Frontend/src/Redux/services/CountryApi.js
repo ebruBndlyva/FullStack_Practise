@@ -2,7 +2,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 export const CountryApi = createApi({
     reducerPath: "categoryApi",
-    baseQuery: fetchBaseQuery({ baseUrl: "" }),
+    baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:3000" }),
     endpoints: (builder) => ({
         getCountryData: builder.query({
             query: () => "/country",

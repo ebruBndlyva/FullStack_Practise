@@ -5,7 +5,10 @@ import img1 from "../../assets/s1.jpg.webp";
 import blog1 from "../../assets/b1.jpg.webp"
 import blog2 from "../../assets/b2.jpg.webp"
 import { FaRegUser } from "react-icons/fa";
+import { useGetCountryDataQuery } from "../../Redux/services/CountryApi";
 function Home() {
+  let { data, isLoading, refetch } = useGetCountryDataQuery()
+  console.log(data);
   return (
     <div className={style.main}>
       <div className={style.hero}>
@@ -33,18 +36,22 @@ function Home() {
               </p>
             </div>
             <div className={style.immgr_cards}>
-              <div className={style.immgr_card}>
-                <div className={style.immgr_card_img}>
-                  <img src={img1} alt="cardImg" />
-                </div>
-                <div className={style.immgr_card_desc}>
-                  <span>United States</span>
-                  <h3>Addiction When Gambling Becomes A Problem</h3>
-                  <p>
-                    inappropriate behavior ipsum dolor sit amet, consectetur.
-                  </p>
-                </div>
-              </div>
+              {
+                isLoading ? (<h2>...Loading</h2>) : (
+                  data.map(item => (
+                    <div key={item._id} className={style.immgr_card}>
+                      <div className={style.immgr_card_img}>
+                        <img src={item.image} alt="cardImg" />
+                      </div>
+                      <div className={style.immgr_card_desc}>
+                        <span>{item.country}</span>
+                        <h3>{item.title ? item.title.slice(0, 10) : "No Title"}...</h3>
+                        <p>{item.description ? item.description.slice(0, 15) : "No Description"}...</p>
+                      </div>
+                    </div>
+                  ))
+                )
+              }
             </div>
           </div>
         </div>
@@ -139,34 +146,34 @@ function Home() {
               </p>
             </div>
             <div className={style.blog_cards} >
-            <div className={style.blog_card} >
-            <div className={style.blog_card_img} >
-              <img src={blog1} alt="blogImg" />
-            </div>
-            <div className={style.blog_card_desc} >
-              <div className={style.blog_card_work}>
-                <span>Travel</span>
-                <span>Life Style</span>
+              <div className={style.blog_card} >
+                <div className={style.blog_card_img} >
+                  <img src={blog1} alt="blogImg" />
+                </div>
+                <div className={style.blog_card_desc} >
+                  <div className={style.blog_card_work}>
+                    <span>Travel</span>
+                    <span>Life Style</span>
+                  </div>
+                  <h3>Portable lates Fashion for young women</h3>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
+                  <span>31st January, 2018</span>
+                </div>
               </div>
-              <h3>Portable lates Fashion for young women</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
-              <span>31st January, 2018</span>
-            </div>
-            </div>
-            <div className={style.blog_card} >
-            <div className={style.blog_card_img} >
-              <img src={blog2} alt="blogImg" />
-            </div>
-            <div className={style.blog_card_desc} >
-              <div className={style.blog_card_work}>
-                <span>Travel</span>
-                <span>Life Style</span>
+              <div className={style.blog_card} >
+                <div className={style.blog_card_img} >
+                  <img src={blog2} alt="blogImg" />
+                </div>
+                <div className={style.blog_card_desc} >
+                  <div className={style.blog_card_work}>
+                    <span>Travel</span>
+                    <span>Life Style</span>
+                  </div>
+                  <h3>Portable lates Fashion for young women</h3>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
+                  <span>31st January, 2018</span>
+                </div>
               </div>
-              <h3>Portable lates Fashion for young women</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
-              <span>31st January, 2018</span>
-            </div>
-            </div>
             </div>
           </div>
         </div>
