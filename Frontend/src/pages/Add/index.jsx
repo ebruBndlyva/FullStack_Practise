@@ -6,6 +6,7 @@ import Swal from 'sweetalert2'
 
 import { useCountryPostDataMutation, useGetCountryDataQuery } from '../../Redux/services/CountryApi';
 import { useNavigate } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 
 function Add() {
 
@@ -57,6 +58,9 @@ function Add() {
 
 
     <div className='content'>
+        <Helmet>
+        <title>Add</title>
+      </Helmet>
       <div className={style.add_form}>
 
         <form className={style.form} onSubmit={formik.handleSubmit}>

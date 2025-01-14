@@ -1,0 +1,47 @@
+
+.favorite{
+    height: 70vh;
+    padding-top: 50px;
+}
+
+.immgr_cards {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 20px;
+    .immgr_card {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    
+    }
+    .immgr_card_img{
+      width: 100%;
+    }
+    .immgr_card_img img{
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+   
+    .immgr_card_desc {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .immgr_card_desc span {
+      text-align: center;
+      width: 50%;
+      padding: 8px 12px;
+      color: white;
+      background-color: #222222;
+      font-size: 14px;
+    }
+    .immgr_card_desc h3 {
+      font-weight: 500;
+      color: #222222;
+    }
+    .immgr_card_desc p {
+      font-size: 15px;
+      color: #777777;
+    }
+  }

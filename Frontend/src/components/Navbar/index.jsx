@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import style from "./style.module.css";
 import logo from "../../assets/logo.png.webp"
 import { BsTelephone } from "react-icons/bs";
 import { FaBars } from "react-icons/fa";
 import { Link, NavLink } from "react-router-dom"
+import { FavoriteContext } from "../../context/FavoriteContext";
 
 function Navbar() {
+  let { favoriteData } = useContext(FavoriteContext)
   return (
 
     <div className={style.Navbar}>
@@ -34,14 +36,14 @@ function Navbar() {
       <div className={style.Navbar_link}>
 
         <ul >
-          <li><NavLink to={"/"} style={({isActive})=>({color:isActive ? "#f6214b" : "black"})} >Home</NavLink></li>
+          <li><NavLink to={"/"} style={({ isActive }) => ({ color: isActive ? "#f6214b" : "black" })} >Home</NavLink></li>
           <li><Link>About</Link></li>
           <li><Link >Immigration</Link></li>
           <li><Link >Course</Link></li>
           <li><Link >Country</Link></li>
           <li><Link >Blog</Link></li>
-          <li><NavLink style={({isActive})=>({color:isActive ? "#f6214b" : "black"})} to={"/favorite"} >Favorite</NavLink></li>
-          <li><NavLink style={({isActive})=>({color:isActive ? "#f6214b" : "black"})} to={"/add"} >Add</NavLink></li>
+          <li><NavLink style={({ isActive }) => ({ color: isActive ? "#f6214b" : "black" })} to={"/favorite"} >Favorite <span>({favoriteData.length})</span> </NavLink></li>
+          <li><NavLink style={({ isActive }) => ({ color: isActive ? "#f6214b" : "black" })} to={"/add"} >Add</NavLink></li>
 
         </ul>
 

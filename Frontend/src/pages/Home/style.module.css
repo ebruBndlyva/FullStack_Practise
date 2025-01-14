@@ -73,6 +73,44 @@
     font-size: 36px;
     font-weight: 700;
   }
+  .filters {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    margin: 50px 0;
+  }
+  .searchInp {
+    padding: 10px;
+    border-radius: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    color: #f2214c;
+    font-style: italic;
+    &:focus {
+      outline: none;
+    }
+    &::placeholder {
+      color: #f2214c;
+      font-size: 1rem;
+    }
+  }
+  .sortList {
+    padding: 10px;
+    border-radius: 13px;
+    font-size: 1rem;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    background-color: #f2214c;
+    color: white;
+    font-style: italic;
+    &:focus {
+      outline: none;
+    }
+    option {
+      font-size: 1rem;
+      /* color: black; */
+      background-color: white;
+      color: #f2214c;
+    }
+  }
   .immgr_cards {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
